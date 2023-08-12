@@ -1,0 +1,154 @@
+" comments in vimscript start with a `"`.
+"test text"
+
+" if you open this file in vim, it'll be syntax highlighted for you.
+
+"legacy some vi compatability"
+set nocompatible
+
+" Turn on syntax highlighting.
+syntax on
+set synmaxcol=200
+
+" Disable the default Vim startup message.
+set shortmess+=I
+
+" Show line numbers.
+set number
+
+" Makes pasting normal.
+"set paste
+
+"Relative numbers"
+set relativenumber
+
+" Always show the status line at the bottom, even if you only have one window open.
+set laststatus=2
+
+"Normal back space behaviour"
+set backspace=indent,eol,start
+
+"Auto reloadd"
+set autoread
+
+"Allow existance of hidden usaved tabs more info `:help hidden`"
+set hidden
+
+"Ignore case search always Smart search with capitals"
+set ignorecase
+set smartcase
+
+" Enable searching as you type, rather than waiting till you press enter.
+set incsearch
+set hlsearch
+
+" Unbind some useless/annoying default key bindings.
+nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+
+" Disable audible bell because it's annoying.
+set noerrorbells visualbell t_vb=
+
+" Enable mouse support. You should avoid relying on this too much, but it can
+" sometimes be convenient.
+set mouse+=a
+
+"Prevents bad habbits"
+nnoremap <Left>  :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up>    :echoe "Use k"<CR>
+nnoremap <Down>  :echoe "Use j"<CR>
+" ...and in insert mode
+inoremap <Left>  <ESC>:echoe "Use h"<CR>
+inoremap <Right> <ESC>:echoe "Use l"<CR>
+inoremap <Up>    <ESC>:echoe "Use k"<CR>
+
+"Copy to clip-board"
+noremap <C-y> "+y
+
+
+inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+"Remap esc to jk/kj"
+imap jk <Esc>
+imap kj <Esc>
+
+"viminfo file location"
+set viminfo+=n~/.vim/viminfo
+
+"Tabs for python
+set tabstop=4 
+set shiftwidth=4
+set smarttab
+set expandtab "Replace tab with spaces
+set softtabstop=4 "4 spaces in tab
+
+"Tab switch shortcuts
+nnoremap gr :tabprevious<CR>
+
+set autoindent 
+
+"syntax highlit for python"
+"let python_highlight_all = 1
+
+"Turn on all colors
+set t_Co=256
+
+"To display longer lines"
+set wrap
+set linebreak
+
+"Turn off backups of files"
+set nobackup
+set noswapfile
+
+"Ruler"
+set ruler
+
+"Plugins"
+call plug#begin('~/.vim/plugged')
+    Plug 'maxboisvert/vim-simple-complete'
+    Plug 'preservim/nerdtree'
+    Plug 'tpope/vim-surround'
+    Plug 'easymotion/vim-easymotion'
+    "Plug 'xolox/vim-misc'
+    "Plug 'xolox/vim-session'
+call plug#end()
+
+"Nerd tree shortcuts"
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+"Easy motion bindings"
+map <Space>f <Plug>(easymotion-f)
+map <Space>F <Plug>(easymotion-F)
+
+"Tag file serach"
+"set tags=$HOME/ctags/tags;/
+set tags=./tags;,tags,$HOME/ctags/tags
+set cpt-=t
+
+"Open tag in the new tab
+nnoremap <C-[><C-]> <C-w><C-]><C-w><S-t>
+
+"Folding - works well with python
+set foldmethod=indent
+"autocmd FileType python setlocal foldmethod=manual
+"autocmd BufReadPre setlocal foldmethod=indent
+set nofoldenable
+
+function SaveSes(path)
+    let s:saver = fnamemodify(getcwd(), ':t').'.vim'
+    NERDTreeClose
+    if empty(a:path)
+        execute 'mks! '.s:saver
+    elseif isdirectory(a:path)
+        execute 'mks! 'a:path.'/'.s:saver
+    else
+        execute 'mks! Session.vim'
+    endif
+    echo getcwd()
+endfunction
+"Commands
+:command -nargs=? Mkss :call  SaveSes(<q-args>)
+
+

@@ -1,0 +1,5 @@
+[user]
+	email = magisterbrownie@gmail.com
+	name = Artur
+[credential]
+    helper = cache --timeout 30000
