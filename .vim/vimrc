@@ -107,6 +107,7 @@ set ruler
 "Plugins"
 call plug#begin('~/.vim/plugged')
     Plug 'maxboisvert/vim-simple-complete'
+    "Plug 'github/copilot.vim'
     Plug 'preservim/nerdtree'
     Plug 'tpope/vim-surround'
     Plug 'easymotion/vim-easymotion'
