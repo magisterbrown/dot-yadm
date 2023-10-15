@@ -8,7 +8,7 @@ set nocompatible
 
 " Turn on syntax highlighting.
 syntax on
-set synmaxcol=200
+set synmaxcol=2000
 
 " Disable the default Vim startup message.
 set shortmess+=I
