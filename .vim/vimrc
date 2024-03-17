@@ -152,4 +152,5 @@ endfunction
 "Commands
 :command -nargs=? Mkss :call  SaveSes(<q-args>)
 
-
+"Svelte files as html
+ au BufNewFile,BufReadPost *.svelte set syntax=html
