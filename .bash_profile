@@ -1,5 +1,7 @@
-#export PS1='\w$ '
-#export PS1="\W \$ "
-alias clp="xclip -sel clip"
-source ~/.bashrc
+#
+# ~/.bash_profile
+#
 
+alias ltool='java -jar /home/unibrownie/Programs/LanguageTool-6.4-stable/languagetool-commandline.jar'
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
