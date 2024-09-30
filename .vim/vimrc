@@ -157,3 +157,5 @@ endfunction
 
 "Svelte files as html
  au BufNewFile,BufReadPost *.svelte set syntax=html
+"Verilog syntax highlitghting
+ au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/syntax/verilog_systemverilog.vim
