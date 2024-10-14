@@ -1,7 +1,9 @@
 [user]
-	email = magisterbrownie@gmail.com
+	email = artur.brodovic@ubiops.com
 	name = Artur
 [credential]
     helper = cache --timeout 30000
 [pull]
 	rebase = true
+[core]
+	editor = vim
