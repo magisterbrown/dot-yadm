@@ -162,3 +162,4 @@ endfunction
 
  "Clipboard on wayland
  xnoremap <silent> *y :w !wl-copy<CR><CR>
+ nnoremap <S-B> :ls<CR>:b
