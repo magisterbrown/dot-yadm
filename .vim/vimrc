@@ -110,9 +110,9 @@ set ruler
 call plug#begin('~/.vim/plugged')
     Plug 'maxboisvert/vim-simple-complete'
     "Plug 'github/copilot.vim'
-    Plug 'preservim/nerdtree'
-    Plug 'tpope/vim-surround'
-    Plug 'easymotion/vim-easymotion'
+    "Plug 'preservim/nerdtree'
+    "Plug 'tpope/vim-surround'
+    "Plug 'easymotion/vim-easymotion'
     "Plug 'xolox/vim-misc'
     "Plug 'xolox/vim-session'
 call plug#end()
@@ -163,3 +163,4 @@ endfunction
  "Clipboard on wayland
  xnoremap <silent> *y :w !wl-copy<CR><CR>
  nnoremap <S-B> :ls<CR>:b
+ nnoremap - :Explore<CR>
