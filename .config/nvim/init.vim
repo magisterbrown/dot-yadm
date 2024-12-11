@@ -38,12 +38,6 @@ set linebreak
 set nobackup
 set noswapfile
 
-"Tabs for python
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab "Replace tab with spaces
-set softtabstop=4 "4 spaces in tab
 
 call plug#begin("~/.vim/plugged")
  Plug 'nvim-lua/plenary.nvim'
@@ -52,6 +46,7 @@ call plug#begin("~/.vim/plugged")
  Plug 'albenisolmos/telescope-oil.nvim'
 
 " Plug 'neovim/nvim-lspconfig'
+" Plug 'simrat39/rust-tools.nvim'
 " Plug 'hrsh7th/cmp-nvim-lsp'
 " Plug 'hrsh7th/cmp-buffer'
 " Plug 'hrsh7th/cmp-path'
@@ -67,3 +62,22 @@ call plug#begin("~/.vim/plugged")
 call plug#end()
 
 lua require('conf')
+
+"Tabs for python
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab "Replace tab with spaces
+set softtabstop=4 "4 spaces in tab
+
+ "Clipboard on wayland
+ xnoremap <silent> *y :w !wl-copy<CR><CR>
+
+ "Tag file serach"
+"set tags=$HOME/ctags/tags;/
+set tags=./tags;,tags,$HOME/ctags/tags
+set cpt-=t
+
+"Open tag in the new tab
+nnoremap <C-[><C-]> <C-w><C-]><C-w><S-t>
+

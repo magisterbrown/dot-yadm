@@ -5,6 +5,7 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' 
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set("n", "<leader>fo", "<cmd>Telescope oil<CR>", { noremap = true, silent = true , desc= "Telesope oil dir search"})
 
+
 local cmp = require('cmp')
 cmp.setup({
     sources = {
@@ -34,8 +35,19 @@ vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory
 vim.keymap.set("n", "<C-f>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 require("telescope").load_extension("oil")
 
---local lspconfig = require('lspconfig')
---lspconfig.clangd.setup({
---    capabilities = capabilities
---})
---
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'rust' },
+    callback = function(args)
+        vim.lsp.start({
+            cmd = { 'rust-analyzer' },
+            single_file_support = true,
+            capabilities = {
+              experimental = {
+                serverStatusNotification = true,
+              },
+            }
+        })
+    end,
+
+})
+vim.g.editorconfig = false
