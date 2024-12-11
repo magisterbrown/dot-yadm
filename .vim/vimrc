@@ -42,6 +42,7 @@ set smartcase
 set incsearch
 set hlsearch
 
+" Local configs
 set exrc
 
 " Unbind some useless/annoying default key bindings.
