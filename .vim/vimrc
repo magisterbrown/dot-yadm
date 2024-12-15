@@ -110,6 +110,9 @@ set ruler
 "Plugins"
 call plug#begin('~/.vim/plugged')
     Plug 'maxboisvert/vim-simple-complete'
+    Plug 'tpope/vim-vinegar'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     "Plug 'github/copilot.vim'
     "Plug 'preservim/nerdtree'
     "Plug 'tpope/vim-surround'
@@ -163,5 +166,16 @@ endfunction
 
  "Clipboard on wayland
  xnoremap <silent> *y :w !wl-copy<CR><CR>
- nnoremap <S-B> :ls<CR>:b
- nnoremap - :Explore<CR>
+ nnoremap <S-B> :ls t<CR>:b
+
+ nnoremap <silent> ]b :bn<CR>
+ nnoremap <silent> [b :bp<CR>
+
+ nnoremap <silent> ]q :cnext<CR>
+ nnoremap <silent> [q :cprevious<CR>
+
+ "Fzf keybindings
+ nnoremap <silent> <leader>ff :Files<CR>
+ nnoremap <silent> <leader>fg :Rg<CR>
+ nnoremap <silent> <leader>fb :Lines<CR>
+ 
