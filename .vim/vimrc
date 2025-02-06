@@ -81,7 +81,7 @@ set viminfo+=n~/.vim/viminfo
 "Tabs for python
 set tabstop=4 
 set shiftwidth=4
-set smarttab
+" set smarttab
 set expandtab "Replace tab with spaces
 set softtabstop=4 "4 spaces in tab
 
@@ -166,7 +166,7 @@ endfunction
 
  "Clipboard on wayland
  xnoremap <silent> *y :w !wl-copy<CR><CR>
- nnoremap <S-B> :ls t<CR>:b
+ nnoremap <S-B> :ls t<CR>:b<Space>
 
  nnoremap <silent> ]b :bn<CR>
  nnoremap <silent> [b :bp<CR>
