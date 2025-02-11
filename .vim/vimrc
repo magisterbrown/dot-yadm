@@ -6,6 +6,8 @@
 "legacy some vi compatability"
 set nocompatible
 
+set noshowmatch
+
 " Turn on syntax highlighting.
 syntax on
 set synmaxcol=2000
