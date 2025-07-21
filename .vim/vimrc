@@ -141,7 +141,8 @@ set cpt-=t
 nnoremap <C-[><C-]> <C-w><C-]><C-w><S-t>
 
 "Folding - works well with python
-set foldmethod=indent
+set foldmethod=manual
+command! Fdi setlocal foldmethod=indent
 "autocmd FileType python setlocal foldmethod=manual
 "autocmd BufReadPre setlocal foldmethod=indent
 set nofoldenable
@@ -181,3 +182,11 @@ endfunction
  nnoremap <silent> <leader>fg :Rg<CR>
  nnoremap <silent> <leader>fb :Lines<CR>
  
+" Pane navigation
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+nnoremap <C-W>m <C-W>\|<C-W>_
+nnoremap <C-W>M <C-W>=
+set statusline=%{winnr()}\ %f
