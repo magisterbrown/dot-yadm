@@ -21,9 +21,6 @@ set number
 " Makes pasting normal.
 "set paste
 
-"Relative numbers"
-set relativenumber
-
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 
@@ -115,12 +112,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-vinegar'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    "Plug 'github/copilot.vim'
-    "Plug 'preservim/nerdtree'
-    "Plug 'tpope/vim-surround'
-    "Plug 'easymotion/vim-easymotion'
-    "Plug 'xolox/vim-misc'
-    "Plug 'xolox/vim-session'
+    Plug 'm6z/VimRegDeluxe'
 call plug#end()
 
 "Nerd tree shortcuts"
