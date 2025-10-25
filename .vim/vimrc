@@ -58,9 +58,6 @@ set mouse+=a
 "Copy to clip-board"
 noremap <C-y> "+y
 
-
-inoremap <Down>  <ESC>:echoe "Use j"<CR>
-
 "Remap esc to jk/kj"
 imap jk <Esc>
 imap kj <Esc>
@@ -103,8 +100,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-vinegar'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'm6z/VimRegDeluxe'
+    Plug 'mbbill/undotree'
 call plug#end()
+
+"Undo tree
+nnoremap <F5> :UndotreeToggle<CR>
 
 "Nerd tree shortcuts"
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -170,6 +170,24 @@ nmap <silent> <c-k> :wincmd k<CR>
 nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
+
+function! PercentageResize()
+    normal! <C-w>=
+    let s:window_area = winwidth(0) * winheight(0)
+    let s:screen_area = &columns * &lines
+    let s:area_percentage = (s:window_area * 100.0) / s:screen_area
+
+    if s:area_percentage > 65
+        wincmd =
+    else
+        wincmd _
+        wincmd |
+    endif
+endfunction
+
+" Window maximize and minimize
 nnoremap <C-W>m <C-W>\|<C-W>_
 nnoremap <C-W>M <C-W>=
+nnoremap <C-M> :call PercentageResize()<CR>
+
 set statusline=%{winnr()}\ %f
