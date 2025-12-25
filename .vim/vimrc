@@ -98,22 +98,11 @@ set ruler
 call plug#begin('~/.vim/plugged')
     Plug 'maxboisvert/vim-simple-complete'
     Plug 'tpope/vim-vinegar'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
     Plug 'mbbill/undotree'
 call plug#end()
 
 "Undo tree
 nnoremap <F5> :UndotreeToggle<CR>
-
-"Nerd tree shortcuts"
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-
-"Easy motion bindings"
-map <Space>f <Plug>(easymotion-f)
-map <Space>F <Plug>(easymotion-F)
 
 "Tag file serach"
 "set tags=$HOME/ctags/tags;/
@@ -145,25 +134,21 @@ endfunction
 "Commands
 :command -nargs=? Mkss :call  SaveSes(<q-args>)
 
-"Svelte files as html
- au BufNewFile,BufReadPost *.svelte set syntax=html
 "Verilog syntax highlitghting
  au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/syntax/verilog_systemverilog.vim
-
- "Clipboard on wayland
- xnoremap <silent> *y :w !wl-copy<CR><CR>
- nnoremap <S-B> :ls t<CR>:b<Space>
 
  nnoremap <silent> ]b :bn<CR>
  nnoremap <silent> [b :bp<CR>
 
  nnoremap <silent> ]q :cnext<CR>
  nnoremap <silent> [q :cprevious<CR>
+ nnoremap <silent> [Q :crewind<CR>
+ nnoremap <silent> ]Q :clast<CR>
 
- "Fzf keybindings
- nnoremap <silent> <leader>ff :Files<CR>
- nnoremap <silent> <leader>fg :Rg<CR>
- nnoremap <silent> <leader>fb :Lines<CR>
+ nnoremap <silent> ]a :next<CR>
+ nnoremap <silent> [a :prev<CR>
+ nnoremap <silent> [A :first<CR>
+ nnoremap <silent> ]A :last<CR>
  
 " Pane navigation
 nmap <silent> <c-k> :wincmd k<CR>
@@ -186,8 +171,6 @@ function! PercentageResize()
 endfunction
 
 " Window maximize and minimize
-nnoremap <C-W>m <C-W>\|<C-W>_
-nnoremap <C-W>M <C-W>=
-nnoremap <C-M> :call PercentageResize()<CR>
+nnoremap <C-W>m :call PercentageResize()<CR>
 
 set statusline=%{winnr()}\ %f
