@@ -131,24 +131,25 @@ function SaveSes(path)
     endif
     echo getcwd()
 endfunction
-"Commands
-:command -nargs=? Mkss :call  SaveSes(<q-args>)
 
 "Verilog syntax highlitghting
- au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/syntax/verilog_systemverilog.vim
+au BufNewFile,BufRead *.sv,*.svh,*.vh,*.v so ~/.vim/syntax/verilog_systemverilog.vim
 
- nnoremap <silent> ]b :bn<CR>
- nnoremap <silent> [b :bp<CR>
+nnoremap <silent> ]b :bn<CR>
+nnoremap <silent> [b :bp<CR>
+nnoremap <silent> ]B :bl<CR>
+nnoremap <silent> [B :bf<CR>
+nnoremap <C-b> :ls<CR>:b<Space>
 
- nnoremap <silent> ]q :cnext<CR>
- nnoremap <silent> [q :cprevious<CR>
- nnoremap <silent> [Q :crewind<CR>
- nnoremap <silent> ]Q :clast<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> [Q :crewind<CR>
+nnoremap <silent> ]Q :clast<CR>
 
- nnoremap <silent> ]a :next<CR>
- nnoremap <silent> [a :prev<CR>
- nnoremap <silent> [A :first<CR>
- nnoremap <silent> ]A :last<CR>
+nnoremap <silent> ]a :next<CR>  :ar<CR>
+nnoremap <silent> [a :prev<CR>  :ar<CR>
+nnoremap <silent> [A :first<CR> :ar<CR>
+nnoremap <silent> ]A :last<CR>  :ar<CR>
  
 " Pane navigation
 nmap <silent> <c-k> :wincmd k<CR>
@@ -174,3 +175,6 @@ endfunction
 nnoremap <C-W>m :call PercentageResize()<CR>
 
 set statusline=%{winnr()}\ %f
+
+nnoremap <F4> :w<CR> :make<CR>
+set nowrap
